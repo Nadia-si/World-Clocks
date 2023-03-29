@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="src/style.css" />
+    <title>World Clocks</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="world-clock-wrapper">
+        <div class="world-clock">
+          <h1>World Clocks</h1>
+          <select id="search">
+            <option value="">Select a location..</option>
+            <option value="current">Current location</option>
+            <option value="toronto">Lisbon</option>
+            <option value="kigali">Kigali</option>
+            <option value="cape town">Cape Town</option>
+          </select>
+          <div class="cities" id="cities">
+            <div id="toronto" class="city">
+              <div>
+                <h2>Toronto</h2>
+                <div class="date">March 29th 2023</div>
+                <div class="time">10:47:00 PM</div>
+              </div>
+            </div>
+            <div id="kigali" class="city">
+              <div>
+                <h2>Kigali</h2>
+                <div class="date">March 29th 2023</div>
+                <div class="time">10:47:00 PM</div>
+              </div>
+            </div>
+            <div id="capeTown" class="city">
+              <div>
+                <h2>Cape Town</h2>
+                <div class="date">March 29th 2023</div>
+                <div class="time">10:47:00 PM</div>
+              </div>
+            </div>
+            <div id="sydney" class="city">
+              <div>
+                <h2>Sydney</h2>
+                <div class="date">March 29th 2023</div>
+                <div class="time">10:47:00 PM</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <small>
+          This project was coded by Nadia Simbi and is
+          <a href="#" target="_blank">Open-sourced code</a>
+          and
+          <a href="#" target="_blank">hosted on Netlify</a>
+        </small>
+      </div>
+    </div>
+    <script src="src/index.js"></script>
+  </body>
+</html>

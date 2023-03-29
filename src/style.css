@@ -1,0 +1,43 @@
+body {
+  font-family: arial, sans-serif;
+}
+
+select {
+  width: 100%;
+  padding: 16px;
+  border-radius: 6px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+}
+.city {
+  border-bottom: 1px dashed rgba(39, 32, 68, 0.2);
+  padding: 30px 0;
+  display: flex;
+  justify-content: space-between;
+}
+.city h2 {
+  font-weight: 700;
+  font-size: 32px;
+  margin: 0 0 8px;
+  line-height: 41px;
+}
+
+.city .time {
+  font-size: 44px;
+  font-weight: bold;
+  line-height: 61px;
+  color: #03586d;
+}
+
+.world-clock-wrapper {
+  max-width: 600px;
+  margin: 30px auto;
+}
+
+.world-clock {
+  padding: 20px;
+  border: 1px solid #dadde1;
+  border-radius: 5px;
+  background-color: rgb(231, 219, 219);
+}
