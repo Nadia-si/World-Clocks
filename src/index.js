@@ -57,39 +57,30 @@ let months = [
 ];
 let month = months[time.getMonth()];
 let year = time.getFullYear();
-let currentDate = `${month} ${day}th ${year}`;
+let currentDate = `${month} ${day}, ${year}`;
 
 let dateToronto = document.querySelector(".dateToronto");
-dateToronto.innerHTML = currentDate;
+
+dateToronto.innerHTML = time.toLocaleDateString("en-US", {
+  timeZone: "America/Toronto",
+  month: "long",
+  year: "numeric",
+  day: "numeric",
+});
 let dateKigali = document.querySelector(".dateKigali");
 dateKigali.innerHTML = currentDate;
 let dateCape = document.querySelector(".dateCape");
 dateCape.innerHTML = currentDate;
 let dateSydney = document.querySelector(".dateSydney");
-let options = {
-  weekday: "long",
-  year: "numeric",
-  month: "long",
-  day: "numeric",
-};
 dateSydney.innerHTML = time.toLocaleDateString("en-US", {
+  timeZone: "Australia/Sydney",
   month: "long",
   year: "numeric",
   day: "numeric",
 });
-//dateSydney.innerHTML = month[sydneyDate];
 
-/*
-const monthNames = ["January", "February", "March", "April", "May", "June",
-  "July", "August", "September", "October", "November", "December"
-];
-
-const d = new Date();
-document.write("The current month is " + monthNames[d.getMonth()]);
-
-let year = date.getFullYear();
-let day = date.getDate();
-
-let currentDate = `${day}-${month}-${year}`;
-
-*/
+let selectLocation = document.querySelector("#search");
+selectLocation.addEventListener("change", (event) => {
+  let cities = document.querySelector("#cities");
+  cities.innerHTML = `${event.target.value}`;
+});
