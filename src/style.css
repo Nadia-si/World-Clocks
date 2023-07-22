@@ -1,6 +1,10 @@
 body {
   font-family: arial, sans-serif;
 }
+h1 {
+  font-size: 48px;
+  font-weight: 600;
+}
 
 select {
   width: 100%;
@@ -17,7 +21,7 @@ select {
   justify-content: space-between;
 }
 .city h2 {
-  font-weight: 700;
+  font-weight: 600;
   font-size: 32px;
   margin: 0 0 8px;
   line-height: 41px;
@@ -25,8 +29,8 @@ select {
 
 .city .time {
   font-size: 44px;
-  font-weight: bold;
-  line-height: 61px;
+  font-weight: 600;
+  line-height: 60px;
   color: #03586d;
 }
 
