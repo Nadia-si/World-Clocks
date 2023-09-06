@@ -51,9 +51,10 @@ function currentTime() {
     year: "numeric",
     day: "numeric",
   });
+
   //Sydney
   let timeSydney = document.querySelector("#timeSydney");
-  timeSydney.innerHTML = time.toLocaleTimeString(undefined, {
+  timeSydney.innerHTML = time.toLocaleTimeString("en-US", {
     timeZone: "Australia/Sydney",
   });
   let dateSydney = document.querySelector("#dateSydney");
@@ -77,12 +78,14 @@ function currentTime() {
   let t = setTimeout(function () {
     currentTime();
   }, 1000);
-  function search(event) {
+
+  function currentLocation(event) {
     let cities = document.querySelector("#cities");
     let value = event.target.value;
     if (value === "current") {
       value = moment.tz.guess();
     }
+
     if (value.length) {
       let searchTime = moment().tz(value);
       let city = value.split("/")[1].replace("_", " ");
@@ -99,7 +102,32 @@ function currentTime() {
     }
   }
 
+  function africaZone(event) {
+    let cities = document.querySelector("#cities");
+    let value = event.target.value;
+
+    let cityZone = {
+      kigali: "Kigali",
+      cape: "Cape Town",
+    };
+
+    let city = cityZone[value];
+
+    if (city) {
+      let time = realTime;
+      let date = currentDate;
+      cities.innerHTML = `
+      <div class="city">
+      <h2>${city}
+      <div class="date">${date}</div>
+      </h2>
+      <div class="time">${time}</div>
+      </div>`;
+    }
+  }
+
   let select = document.getElementById("search");
-  select.addEventListener("change", search);
+  select.addEventListener("change", currentLocation);
+  select.addEventListener("change", africaZone);
 }
 currentTime();
