@@ -3,6 +3,7 @@ function currentTime() {
   let hours = time.getHours();
   let minutes = time.getMinutes();
   let seconds = time.getSeconds();
+
   if (minutes < 10) {
     minutes = "0" + minutes;
   }
@@ -41,39 +42,87 @@ function currentTime() {
 
   //Toronto
   let timeToronto = document.querySelector("#timeToronto");
-  timeToronto.innerHTML = time.toLocaleTimeString("en-US", {
+  let torontoTimeZone = time.toLocaleTimeString("en-US", {
     timeZone: "America/Toronto",
   });
+  timeToronto.innerHTML = torontoTimeZone;
+
   let dateToronto = document.querySelector("#dateToronto");
-  dateToronto.innerHTML = time.toLocaleDateString("en-US", {
+  let torontoDate = time.toLocaleDateString("en-US", {
     timeZone: "America/Toronto",
     month: "long",
     year: "numeric",
     day: "numeric",
   });
+  dateToronto.innerHTML = torontoDate;
 
   //Sydney
   let timeSydney = document.querySelector("#timeSydney");
-  timeSydney.innerHTML = time.toLocaleTimeString("en-US", {
+  let sydneyTimeZone = time.toLocaleTimeString("en-US", {
     timeZone: "Australia/Sydney",
   });
+  timeSydney.innerHTML = sydneyTimeZone;
+
   let dateSydney = document.querySelector("#dateSydney");
-  dateSydney.innerHTML = time.toLocaleDateString("en-US", {
+  let sydneyDate = time.toLocaleDateString("en-US", {
     timeZone: "Australia/Sydney",
     month: "long",
     year: "numeric",
     day: "numeric",
   });
+  dateSydney.innerHTML = sydneyDate;
+
   //Kigali
   let timeKigali = document.querySelector("#timeKigali");
   timeKigali.innerHTML = realTime;
   let dateKigali = document.querySelector("#dateKigali");
   dateKigali.innerHTML = currentDate;
-  //Cape Town
-  let timeCape = document.querySelector("#timeCape");
-  timeCape.innerHTML = realTime;
-  let dateCape = document.querySelector("#dateCape");
-  dateCape.innerHTML = currentDate;
+
+  //London
+  let timeLondon = document.querySelector("#timeLondon");
+  timeLondon.innerHTML = time.toLocaleTimeString("en-US", {
+    timeZone: "Europe/London",
+  });
+  let dateLondon = document.querySelector("#dateLondon");
+  dateLondon.innerHTML = time.toLocaleDateString("en-US", {
+    timeZone: "Europe/London",
+    month: "long",
+    year: "numeric",
+    day: "numeric",
+  });
+
+  //Los_Angeles
+  let timeLosAngeles = time.toLocaleTimeString("en-US", {
+    timeZone: "America/Los_Angeles",
+  });
+  let dateLosAngeles = time.toLocaleDateString("en-US", {
+    timeZone: "America/Los_Angeles",
+    month: "long",
+    year: "numeric",
+    day: "numeric",
+  });
+
+  //New Delhi
+  let timeNewDelhi = time.toLocaleTimeString("en-US", {
+    timeZone: "Asia/Kolkata",
+  });
+  let dateNewDelhi = time.toLocaleDateString("en-US", {
+    timeZone: "Asia/Kolkata",
+    month: "long",
+    year: "numeric",
+    day: "numeric",
+  });
+
+  //Bangkok
+  let timeBangkok = time.toLocaleTimeString("en-US", {
+    timeZone: "Asia/Bangkok",
+  });
+  let dateBangkok = time.toLocaleDateString("en-US", {
+    timeZone: "Asia/Bangkok",
+    month: "long",
+    year: "numeric",
+    day: "numeric",
+  });
 
   let t = setTimeout(function () {
     currentTime();
@@ -102,20 +151,62 @@ function currentTime() {
     }
   }
 
-  function africaZone(event) {
+  function losAngelesZone(event) {
     let cities = document.querySelector("#cities");
     let value = event.target.value;
 
     let cityZone = {
-      kigali: "Kigali",
-      cape: "Cape Town",
+      losAngeles: "Los Angeles",
     };
-
     let city = cityZone[value];
 
     if (city) {
-      let time = realTime;
-      let date = currentDate;
+      let time = timeLosAngeles;
+      let date = dateLosAngeles;
+      cities.innerHTML = `
+      <div class="city">
+      <h2>${city}
+      <div class="date">${date}</div>
+      </h2>
+      <div class="time">${time}</div>
+      </div>`;
+    }
+  }
+
+  function newDelhiZone(event) {
+    let cities = document.querySelector("#cities");
+    let value = event.target.value;
+
+    let cityZone = {
+      newDelhi: "New Delhi",
+    };
+    let city = cityZone[value];
+
+    if (city) {
+      let time = timeNewDelhi;
+      let date = dateNewDelhi;
+      cities.innerHTML = `
+      <div class="city">
+      <h2>${city}
+      <div class="date">${date}</div>
+      </h2>
+      <div class="time">${time}</div>
+      </div>`;
+    }
+  }
+
+  function bangkokZone(event) {
+    let cities = document.querySelector("#cities");
+    let value = event.target.value;
+
+    let cityZone = {
+      bangkok: "Bangkok",
+    };
+    let city = cityZone[value];
+
+    if (city) {
+      let time = timeBangkok;
+      let date = dateBangkok;
       cities.innerHTML = `
       <div class="city">
       <h2>${city}
@@ -128,6 +219,8 @@ function currentTime() {
 
   let select = document.getElementById("search");
   select.addEventListener("change", currentLocation);
-  select.addEventListener("change", africaZone);
+  select.addEventListener("change", losAngelesZone);
+  select.addEventListener("change", newDelhiZone);
+  select.addEventListener("change", bangkokZone);
 }
 currentTime();
