@@ -50,3 +50,42 @@ select {
   font-weight: normal;
   color: rgb(41, 40, 40);
 }
+
+@media (max-width: 960px) {
+  h1 {
+    font-size: 36px;
+  }
+  select {
+    width: 100%;
+    padding: 14px;
+    border-radius: 4px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+  }
+  .city {
+    padding: 20px 0;
+  }
+  .city h2 {
+    font-weight: 600;
+    font-size: 24px;
+    margin: 0 0 6px;
+    line-height: 30px;
+  }
+
+  .city .time {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 30px;
+  }
+  .city .date {
+    font-size: 16px;
+    line-height: 20px;
+  }
+  .world-clock {
+    background-size: 600px;
+  }
+  .footer {
+    font-size: 11px;
+  }
+}
